@@ -4,7 +4,7 @@
             <link rel='stylesheet' href='/static/bootstrap.min.css'>
 			<link rel='stylesheet' href='/static/styles.css'>
 	        <meta charset="UTF-8">
-	        <title>TriVon Security!</title>
+	        <title>Secured Accounts</title>
 	    </head>
 	    <body>
             <!-- navigation bar -->
@@ -14,13 +14,14 @@
 					<a class="nav-link" href="/">HOME</a>
 					<a class="nav-link" href="/encrypt-password">ENCRPYT</a>
 					<a class="current-page">VIEW</a>
+                    <a class="nav-link" href="/view-inside" style="color: #96c8d0; margin-left: 43.78%;">ADMIN</a>
 				</div>
 			</nav>
-	        <h2>Account List:</h2>
+	        <h2 style="margin-top: 0;">Account List:</h2>
 	        {% for accounts in account_list %}
-	            <h4>{{accounts.account}}:</h4>
-	            <p>{{accounts.passwordManager.decrypt_password()}}</p>
 	            <hr style="width: 25%; margin-left:0">
+                <p><b><u>Account:</u></b> {{accounts.account}}</p>
+	            <p><b><u>Password:</u></b> {{accounts.passwordManager.decrypt_password()}}</p>
                 {% endfor %}
 	    </body>
 	</html>

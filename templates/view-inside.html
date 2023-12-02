@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+	<html lang="en">
+	    <head>
+            <link rel='stylesheet' href='/static/bootstrap.min.css'>
+			<link rel='stylesheet' href='/static/styles.css'>
+	        <meta charset="UTF-8">
+	        <title>Secured Accounts</title>
+			<style>
+                .animate_body {
+                background-color: #030002;
+				color:  #00ff41;
+                animation-name: body_anim;
+                animation-duration: 4s;
+                }
+
+                @keyframes body_anim {
+                from {background-color: #7aa7ad; color: #1a1a1a;}
+                to {background-color: #030002; color: #00ff41;}
+                }
+
+				.animate_navigate {
+					background-color: #0d0208;
+					color: #008f11;
+					animation-name: navi_anim;
+					animation-duration: 4s;
+				}
+
+				@keyframes navi_anim {
+					from {background-color: #96c8d0; color: #000000;}
+					to {background-color: #0d0208; color: #008f11;}
+				}
+            </style>
+	    </head>
+	    <body class="animate_body" style="color:  #00ff41;">
+            <!-- navigation bar -->
+			<nav class="animate_navigate navbar navbar-expand">
+				<div class="collapse navbar-collapse">
+					<a href="/"><img class="logo" src="/static/logo.png" alt="logo"></a>
+					<a class="nav-link" href="/">HOME</a>
+					<a class="nav-link" href="/encrypt-password">ENCRPYT</a>
+					<a class="nav-link" href="/view-list">VIEW</a>
+                    <a class="nav-link" style="margin-left: 43.78%;">ADMIN</a>
+				</div>
+			</nav>
+	        <h2 style="margin-top: 0;">Account List:</h2>
+	        {% for accounts in account_list %}
+	            <hr style="width: 25%; margin-left:0">
+	            <p><b><u>Account:</u></b> {{accounts.account}}</p>
+				<p><b><u>Key:</u></b> {{accounts.passwordManager.encryption_key}}</p>
+	            <p style="word-wrap: break-word;"><b><u>Account:</u></b> {{accounts.passwordManager.encrypted_password}}</p>
+                {% endfor %}
+	    </body>
+	</html>
