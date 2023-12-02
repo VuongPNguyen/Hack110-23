@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+	<html lang="en">
+	    <head>
+            <link rel='stylesheet' href='/static/bootstrap.min.css'>
+			<link rel='stylesheet' href='/static/styles.css'>
+	        <meta charset="UTF-8">
+	        <title>TriVon Security!</title>
+	    </head>
+	    <body>
+            <!-- navigation bar -->
+			<nav class="navbar navbar-expand">
+				<div class="collapse navbar-collapse">
+					<a href="/"><img class="logo" src="/static/logo.png" alt="logo"></a>
+					<a class="nav-link" href="/">HOME</a>
+					<a class="nav-link" href="/encrypt-password">ENCRPYT</a>
+					<a class="current-page">VIEW</a>
+					<menu class="navbar-nav">
+				</div>
+			</nav>
+	        <h2>Account List:</h2>
+	        {% for accounts in account_list %}
+	            <h4>{{accounts.account}}:</h4>
+	            <p>{{accounts.password}}</p>
+	            <hr style="width: 25%; margin-left:0">
+                {% endfor %}
+	    </body>
+	</html>
