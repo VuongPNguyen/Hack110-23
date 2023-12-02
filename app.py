@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from helpers import acct_pwd
+from encrypt_backend import PasswordManager
 from operator import attrgetter
 
 app: Flask = Flask(__name__)
@@ -15,14 +16,17 @@ def create_todo():
     if request.method == "POST":
         global account_list
 
+        # Get inputs from encrypt-password.html
         account: str = request.form['account']
         password: str = request.form['password']
 
+        # If any field is empty, render error message.
         if account == '':
             return render_template("encrypt-password.html", acct_valid=False, pwd_valid=False)
-
         elif password == '':
             return render_template("encrypt-password.html", acct_valid=True, pwd_valid=False)
+        
+
         new_acct: acct_pwd = acct_pwd(account, password)
         account_list.append(new_acct)
         account_list = sorted(account_list, key=attrgetter("lower_account"))
