@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+	<html lang="en">
+        <head>
+            <link rel='stylesheet' href='/static/bootstrap.min.css'>
+			<link rel='stylesheet' href='/static/styles.css'>
+        </head>
+        <body>
+            <!-- navigation bar -->
+			<nav class="navbar navbar-expand">
+				<div class="collapse navbar-collapse">
+					<a href="/"><img class="logo" src="/static/logo.png" alt="logo"></a>
+					<a class="nav-link" href="/">HOME</a>
+					<a class="nav-link" href="/encrypt-password">ENCRPYT</a>
+					<a class="nav-link" href="/view-list">VIEW</a>
+					<menu class="navbar-nav">
+				</div>
+			</nav>
+        </body>
+	    <h1> Password Encrypted </h1>
+        <p> Account: {{account}}</p>
+	    <p> Password: {{password}}</p>
+        <form method="get">
+	        <input type="submit" value="Encrypt Another Password">
+	    </form>
+        <a href="/view-list">
+            <input type="button" value="View All Accounts">
+        </a>
+	</html>
